@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    let uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/ai-college-cms';
+    let uri = process.env.MONGODB_URI;
+    
+    if (!uri) {
+      throw new Error('MONGODB_URI is missing in environment variables!');
+    }
     
     // Sanitize URI: Remove empty appName or other trailing parameters that cause crashes
     if (uri.includes('?appName')) {
