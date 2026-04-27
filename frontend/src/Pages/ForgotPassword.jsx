@@ -26,10 +26,8 @@ function ForgotPassword() {
         setEmail("");
       }
     } catch (err) {
-      setError(
-        err.response?.data?.error ||
-        "Failed to send reset email. Please try again."
-      );
+      const errorMsg = err.response?.data?.error || "Failed to send reset email. Please check your network.";
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -60,8 +58,8 @@ function ForgotPassword() {
                 <div className="w-16 h-16 bg-primary-blue/5 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-primary-blue/10 shadow-sm">
                   <KeyRound className="w-8 h-8 text-primary-blue" />
                 </div>
-                <h1 className="text-2xl font-black text-text-primary mb-2 tracking-tight">Identity Recovery</h1>
-                <p className="text-slate-500 text-sm font-medium">Enter your email and we'll send you a secure reset link</p>
+                <h1 className="text-2xl font-black text-text-primary mb-2 tracking-tight">Forgot Password</h1>
+                <p className="text-slate-500 text-sm font-medium">Enter your email and we'll send you a password reset link</p>
               </div>
 
               {error && (
@@ -108,9 +106,9 @@ function ForgotPassword() {
               <div className="w-20 h-20 bg-emerald-50 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border border-emerald-100 shadow-sm">
                 <CheckCircle className="w-10 h-10 text-emerald-500" />
               </div>
-              <h2 className="text-2xl font-black text-text-primary mb-3 tracking-tight">Transmission Complete</h2>
+              <h2 className="text-2xl font-black text-text-primary mb-3 tracking-tight">Check Your Email</h2>
               <p className="text-slate-500 text-sm mb-8 leading-relaxed font-medium">
-                {message || "We've sent a password reset link to your email address. The link will expire in 10 minutes."}
+                {message || "We've sent a password reset link to your email address."}
               </p>
               <div className="bg-bg-tertiary dark:bg-slate-900 border border-border-color rounded-2xl p-6 mb-8 text-[11px] text-slate-500 font-bold leading-relaxed">
                 💡 Didn't receive it? Check your spam folder or{" "}

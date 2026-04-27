@@ -24,7 +24,7 @@ function Signup() {
     setError("");
 
     if (password.length < 6) {
-      setError("Security protocol requires minimum 6 characters.");
+      setError("Password must be at least 6 characters.");
       return;
     }
 
@@ -32,14 +32,15 @@ function Signup() {
     try {
       const success = await signup(name, email, password, role);
       if (success) {
-        setToastMessage(`Welcome to the Hub, ${name}! Identity registered.`);
+        setToastMessage(`Welcome, ${name}! Your account is ready.`);
         setShowToast(true);
         setTimeout(() => navigate("/feed"), 2000);
       } else {
-        setError("Identity collision detected. Email may already be indexed.");
+        setError("Email already exists.");
       }
     } catch (err) {
-      setError("Registration sequence failed. Check network link.");
+      const errorMsg = err.response?.data?.error || "Failed to send reset email. Please check your network.";
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -80,9 +81,9 @@ function Signup() {
                  <UserPlus className="w-9 h-9 text-white" />
                </div>
              </div>
-             <h1 className="text-4xl font-black text-text-primary mb-3 tracking-tighter">Identity Registration</h1>
-             <p className="text-text-secondary font-black uppercase tracking-[0.3em] text-[10px]">Create Your Academic Profile</p>
-           </div>
+              <h1 className="text-4xl font-black text-text-primary mb-3 tracking-tighter">Create Account</h1>
+              <p className="text-text-secondary font-black uppercase tracking-[0.3em] text-[10px]">Join the academic community</p>
+            </div>
 
            {error && (
              <motion.div 
@@ -130,8 +131,8 @@ function Signup() {
                </div>
              </div>
 
-             <div className="space-y-2">
-               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] ml-2">Role Selection</label>
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] ml-2">Select Role</label>
                <div className="relative group">
                  <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                     <Fingerprint className="w-5 h-5 text-text-secondary group-focus-within:text-primary-blue transition-colors" />
@@ -157,15 +158,15 @@ function Signup() {
                  <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                     <Lock className="w-5 h-5 text-text-secondary group-focus-within:text-primary-blue transition-colors" />
                  </div>
-                 <input
-                   type={showPassword ? "text" : "password"}
-                   value={password}
-                   onChange={(e) => setPassword(e.target.value)}
-                   placeholder="Create cipher"
-                   className="w-full pl-14 pr-14 h-14 bg-bg-tertiary dark:bg-slate-900 border border-border-color rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue/20 focus:bg-white transition-all text-sm font-bold text-text-primary placeholder:text-text-secondary"
-                   required
-                   minLength={6}
-                 />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Create password"
+                    className="w-full pl-14 pr-14 h-14 bg-bg-tertiary dark:bg-slate-900 border border-border-color rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue/20 focus:bg-white transition-all text-sm font-bold text-text-primary placeholder:text-text-secondary"
+                    required
+                    minLength={6}
+                  />
                  <button
                    type="button"
                    onClick={() => setShowPassword(!showPassword)}
@@ -186,27 +187,27 @@ function Signup() {
                  loading ? "opacity-60 cursor-not-allowed" : "hover:scale-[1.02] active:scale-95 border border-white/20 shadow-primary-blue/30"
                }`}
              >
-               {loading ? (
-                 <>
-                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                   Indexing Identity...
-                 </>
-               ) : (
-                 <>
-                   Generate Identity <ArrowRight className="w-5 h-5 group-hover:tranblue-x-1 transition-transform" />
-                 </>
-               )}
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Creating account...
+                  </>
+                ) : (
+                  <>
+                    Sign Up <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
              </button>
            </form>
 
-           <div className="mt-12 pt-8 border-t border-border-color text-center">
-             <p className="text-text-secondary font-bold text-[11px] uppercase tracking-widest">
-               Already Registered?{" "}
-               <Link to="/login" className="text-primary-blue font-black transition-colors ml-2 hover:underline underline-offset-8">
-                 Authenticate
-               </Link>
-             </p>
-           </div>
+            <div className="mt-12 pt-8 border-t border-border-color text-center">
+              <p className="text-text-secondary font-bold text-[11px] uppercase tracking-widest">
+                Already have an account?{" "}
+                <Link to="/login" className="text-primary-blue font-black transition-colors ml-2 hover:underline underline-offset-8">
+                  Login
+                </Link>
+              </p>
+            </div>
         </motion.div>
         
         {/* Verification Tag */}

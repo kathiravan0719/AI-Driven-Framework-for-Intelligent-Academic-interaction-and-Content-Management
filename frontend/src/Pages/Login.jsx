@@ -24,10 +24,10 @@ function Login() {
       if (success) {
         navigate("/feed");
       } else {
-        setError("Neural signature mismatch. Please verify credentials.");
+        setError("Invalid email or password.");
       }
     } catch (err) {
-      setError("Authentication link failed. Check network link.");
+      setError("Login failed. Please check your network.");
     } finally {
       setLoading(false);
     }
@@ -60,8 +60,8 @@ function Login() {
                  <LogIn className="w-9 h-9 text-white" />
                </div>
              </div>
-             <h1 className="text-5xl font-black text-text-primary mb-3 tracking-tighter">System Access</h1>
-             <p className="text-text-secondary font-black uppercase tracking-[0.3em] text-[10px]">Neural Authentication Node</p>
+             <h1 className="text-5xl font-black text-text-primary mb-3 tracking-tighter">Login</h1>
+             <p className="text-text-secondary font-black uppercase tracking-[0.3em] text-[10px]">Access your learning dashboard</p>
            </div>
 
            {error && (
@@ -77,7 +77,7 @@ function Login() {
 
            <form onSubmit={handleSubmit} className="space-y-8">
              <div className="space-y-3">
-               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] ml-2">Identity Vector (Email)</label>
+               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] ml-2">Email Address</label>
                <div className="relative group">
                  <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                     <Mail className="w-5 h-5 text-text-secondary group-focus-within:text-primary-blue transition-colors" />
@@ -94,7 +94,7 @@ function Login() {
              </div>
 
              <div className="space-y-3">
-               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] ml-2">Access Cipher (Password)</label>
+               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] ml-2">Password</label>
                <div className="relative group">
                  <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                     <Lock className="w-5 h-5 text-text-secondary group-focus-within:text-primary-blue transition-colors" />
@@ -122,7 +122,7 @@ function Login() {
                  to="/forgot-password"
                  className="text-[10px] font-black text-primary-blue hover:text-primary-navy uppercase tracking-widest transition-colors flex items-center gap-2"
                >
-                 <span>Recall Cipher?</span>
+                 <span>Forgot Password?</span>
                  <Sparkles className="w-3 h-3" />
                </Link>
              </div>
@@ -137,11 +137,11 @@ function Login() {
                {loading ? (
                  <>
                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                   Processing Neural Link...
+                   Signing you in...
                  </>
                ) : (
                  <>
-                   Establish Connection <ArrowRight className="w-5 h-5 group-hover:tranblue-x-1 transition-transform" />
+                   Login Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                  </>
                )}
              </button>
@@ -149,9 +149,9 @@ function Login() {
 
            <div className="mt-12 pt-10 border-t border-border-color text-center">
              <p className="text-text-secondary font-bold text-[11px] uppercase tracking-widest">
-               New Operator Identified?{" "}
+               Don't have an account?{" "}
                <Link to="/signup" className="text-primary-blue hover:text-primary-navy font-black transition-colors ml-2 hover:underline underline-offset-8">
-                 Register Identity Node
+                 Create Account
                </Link>
              </p>
            </div>
