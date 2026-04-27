@@ -34,7 +34,7 @@ export default function AIChat() {
   
   const SUGGESTIONS = [
     { label: 'How do I create a post?', icon: <MessageSquare className="w-4 h-4" /> },
-    { label: 'Summarize my uploaded notes', icon: <BookOpen className="w-4 h-4" /> },
+    { label: contextDocId ? `Summarize this ${contextDocTitle || 'document'}` : 'Summarize my uploaded notes', icon: <BookOpen className="w-4 h-4" /> },
     { label: 'Upcoming campus events?', icon: <Sparkles className="w-4 h-4" /> },
     { label: 'Library opening hours', icon: <Bot className="w-4 h-4" /> },
   ];

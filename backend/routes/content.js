@@ -69,10 +69,10 @@ const extractTextFromFile = async (filePath, mimetype, originalName) => {
     // ── PDF ──────────────────────────────────────────────────────────────────
     if (mimetype === 'application/pdf' || ext === '.pdf') {
         try {
+            const pdf = require('pdf-parse');
             const dataBuffer = fs.readFileSync(filePath);
-            const parser = new PDFParse({ data: dataBuffer });
-            const result = await parser.getText();
-            return result.text || '';
+            const data = await pdf(dataBuffer);
+            return data.text || '';
         } catch (err) {
             console.error('PDF parse error:', err.message);
             return '';
