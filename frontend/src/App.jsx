@@ -6,7 +6,7 @@ import { Bot, Sparkles, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Lazy load all pages for optimal performance
-const Home = lazy(() => import('./Pages/home'));
+const Home = lazy(() => import('./Pages/Home'));
 const Feed = lazy(() => import('./Pages/Feed'));
 const PostDetail = lazy(() => import('./Pages/PostDetail'));
 const Profile = lazy(() => import('./Pages/Profile'));
