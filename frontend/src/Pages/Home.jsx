@@ -254,22 +254,22 @@ function Pillar({ icon, title, desc }) {
 
 function TopicCard({ title, icon, description, count }) {
   return (
-    <div className="glass-card p-10 rounded-[3rem] group hover:bg-bg-card dark:hover:bg-slate-800 transition-all cursor-pointer relative overflow-hidden shadow-sm hover:shadow-xl">
+    <div className="bg-bg-card dark:bg-slate-800 p-8 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] group hover:shadow-2xl transition-all cursor-pointer relative overflow-hidden shadow-sm border border-border-color">
       <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary-blue/5 rounded-full blur-[80px] group-hover:scale-150 transition-transform duration-700"></div>
-      <div className="w-14 h-14 bg-bg-tertiary dark:bg-slate-900 rounded-2xl flex items-center justify-center mb-8 text-text-secondary border border-border-color group-hover:text-primary-blue group-hover:border-primary-blue/30 transition-all duration-500 shadow-sm">
-         {React.cloneElement(icon, { className: "w-6 h-6" })}
+      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-bg-tertiary dark:bg-slate-900 rounded-2xl flex items-center justify-center mb-6 sm:mb-8 text-text-secondary border border-border-color group-hover:text-primary-blue group-hover:border-primary-blue/30 transition-all duration-500 shadow-sm">
+         {React.cloneElement(icon, { className: "w-5 h-5 sm:w-6 sm:h-6" })}
       </div>
-      <h3 className="text-2xl font-black text-text-primary mb-4 flex items-center gap-4 tracking-tight">
+      <h3 className="text-xl sm:text-2xl font-black text-text-primary mb-3 sm:mb-4 flex items-center gap-4 tracking-tight">
          {title}
-         <div className="h-1 flex-1 bg-border-color rounded-full overflow-hidden">
+         <div className="hidden xs:block h-1 flex-1 bg-border-color rounded-full overflow-hidden">
             <div className="h-full bg-primary-blue/40 w-1/4 group-hover:w-full transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
          </div>
       </h3>
-      <p className="text-text-secondary text-sm mb-10 leading-relaxed font-medium">{description}</p>
+      <p className="text-text-secondary text-xs sm:text-sm mb-8 sm:mb-10 leading-relaxed font-medium line-clamp-2">{description}</p>
       <div className="flex justify-between items-center relative z-10">
-         <div className="text-[10px] font-black text-text-secondary uppercase tracking-[0.3em]">{count} Knowledge Units</div>
-         <div className="p-3 bg-primary-blue/10 rounded-xl text-primary-blue opacity-0 group-hover:opacity-100 tranblue-x-4 group-hover:tranblue-x-0 transition-all duration-500 shadow-lg">
-            <ArrowRight className="w-5 h-5" />
+         <div className="text-[9px] sm:text-[10px] font-black text-text-secondary uppercase tracking-[0.3em]">{count} Knowledge Units</div>
+         <div className="p-2.5 sm:p-3 bg-primary-blue/10 rounded-xl text-primary-blue opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500 shadow-lg">
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
          </div>
       </div>
     </div>
