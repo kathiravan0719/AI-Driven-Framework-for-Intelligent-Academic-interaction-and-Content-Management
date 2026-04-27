@@ -43,11 +43,11 @@ function Login() {
         <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-primary-azure/10 rounded-full blur-[140px] animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative z-10 max-w-lg mx-auto px-4 py-24">
+      <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-80px)] px-4 py-8">
         <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
-           className="bg-bg-card dark:bg-slate-800 p-12 rounded-[3.5rem] border border-border-color shadow-xl relative overflow-hidden"
+           className="w-full max-w-md bg-bg-card dark:bg-slate-800 p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] border border-border-color shadow-xl relative overflow-hidden"
         >
            {/* Visual Decor */}
            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-blue/5 rounded-full blur-[80px] pointer-events-none"></div>
