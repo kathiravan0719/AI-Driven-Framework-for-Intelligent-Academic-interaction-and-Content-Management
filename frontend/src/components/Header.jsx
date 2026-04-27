@@ -349,13 +349,13 @@ const Header = () => {
               </AnimatePresence>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2">
               <Link to="/login" className="px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-primary-blue transition-all">Login</Link>
               <Link to="/signup" className="px-6 py-2.5 text-sm font-extrabold bg-primary-blue hover:bg-primary-navy text-white rounded-2xl transition-all shadow-xl shadow-primary-blue/20 active:scale-95">Join Now</Link>
             </div>
           )}
 
-          <button className="lg:hidden p-3 bg-bg-secondary dark:bg-slate-800 border border-border-color rounded-2xl text-slate-600 dark:text-slate-300 hover:text-primary-blue" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="lg:hidden p-2.5 bg-bg-secondary dark:bg-slate-800 border border-border-color rounded-2xl text-slate-600 dark:text-slate-300 hover:text-primary-blue active:scale-95 transition-all" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
