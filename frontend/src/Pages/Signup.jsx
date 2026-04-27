@@ -183,7 +183,7 @@ function Signup() {
              <button
                type="submit"
                disabled={loading}
-               className={`group w-full h-14 bg-gradient-to-r from-primary-navy via-primary-blue to-primary-azure text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all shadow-xl mt-8 ${
+               className={`group w-full h-16 bg-gradient-to-r from-primary-navy via-primary-blue to-primary-azure text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all shadow-xl mt-8 flex items-center justify-center gap-4 ${
                  loading ? "opacity-60 cursor-not-allowed" : "hover:scale-[1.02] active:scale-95 border border-white/20 shadow-primary-blue/30"
                }`}
              >
