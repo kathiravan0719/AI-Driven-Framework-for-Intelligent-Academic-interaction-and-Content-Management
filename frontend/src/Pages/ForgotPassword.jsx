@@ -36,8 +36,8 @@ function ForgotPassword() {
   return (
     <div className="min-h-screen bg-bg-primary">
       <Header />
-      <div className="flex items-center justify-center min-h-[calc(100vh-80px)] px-4 py-8">
-        <div className="w-full max-w-md bg-bg-card dark:bg-slate-800 rounded-[2.5rem] p-8 sm:p-10 shadow-2xl border border-border-color animate-fadeInUp">
+      <div className="grid place-items-center min-h-[calc(100vh-80px)] w-full px-4 py-12">
+        <div className="w-full max-w-[440px] bg-bg-card dark:bg-slate-800 rounded-[2.5rem] p-8 sm:p-10 shadow-2xl border border-border-color animate-fadeInUp">
           {/* Step indicator */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <div className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${step >= 1 ? 'text-primary-blue' : 'text-text-secondary'}`}>

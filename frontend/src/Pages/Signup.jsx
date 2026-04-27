@@ -64,26 +64,26 @@ function Signup() {
         <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] bg-primary-azure/10 rounded-full blur-[140px] animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-80px)] px-4 py-8">
+      <div className="relative z-10 grid place-items-center min-h-[calc(100vh-80px)] w-full px-4 py-12">
         <motion.div 
-           initial={{ opacity: 0, scale: 0.95 }}
-           animate={{ opacity: 1, scale: 1 }}
-           className="w-full max-w-md bg-bg-card dark:bg-slate-800 p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] border border-border-color shadow-xl relative overflow-hidden"
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           className="w-full max-w-[440px] bg-bg-card dark:bg-slate-800 p-8 sm:p-10 rounded-[2.5rem] border border-border-color shadow-2xl relative overflow-hidden"
         >
            {/* Visual Decor */}
-           <div className="absolute top-0 left-0 w-64 h-64 bg-primary-blue/5 rounded-full blur-[80px] pointer-events-none"></div>
+           <div className="absolute top-0 left-0 w-48 h-48 bg-primary-blue/5 rounded-full blur-[60px] pointer-events-none"></div>
 
            {/* Header */}
-           <div className="text-center mb-10">
-             <div className="relative inline-block mb-8">
+           <div className="text-center mb-8">
+             <div className="relative inline-block mb-6">
                <div className="absolute inset-0 bg-primary-blue rounded-3xl blur-2xl opacity-20"></div>
-               <div className="relative w-20 h-20 bg-gradient-to-br from-primary-navy via-primary-blue to-primary-azure rounded-[2rem] flex items-center justify-center mx-auto shadow-xl border border-white/10">
-                 <UserPlus className="w-9 h-9 text-white" />
+               <div className="relative w-16 h-16 bg-gradient-to-br from-primary-navy via-primary-blue to-primary-azure rounded-[1.5rem] flex items-center justify-center mx-auto shadow-xl border border-white/10">
+                 <UserPlus className="w-7 h-7 text-white" />
                </div>
              </div>
-              <h1 className="text-4xl font-black text-text-primary mb-3 tracking-tighter">Create Account</h1>
-              <p className="text-text-secondary font-black uppercase tracking-[0.3em] text-[10px]">Join the academic community</p>
-            </div>
+             <h1 className="text-4xl font-black text-text-primary mb-2 tracking-tighter">Create Account</h1>
+             <p className="text-text-secondary font-black uppercase tracking-[0.3em] text-[9px]">Join the academic community</p>
+           </div>
 
            {error && (
              <motion.div 
