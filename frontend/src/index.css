@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ════════════════════════════════
+   DESIGN SYSTEM — LIGHT MODE (default)
+   ════════════════════════════════ */
+:root {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #EFF6FF;
+  --bg-card: #FFFFFF;
+
+  --primary-blue: #2563EB;
+  --primary-navy: #1E40AF;
+  --primary-azure: #3B82F6;
+
+  --border-color: #DBEAFE;
+  --border-subtle: #E2E8F0;
+
+  --primary-gradient: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #3B82F6 100%);
+  --surface-gradient: radial-gradient(circle at top left, rgba(37, 99, 235, 0.05), transparent 60%);
+
+  --text-primary: #000000;
+  --text-secondary: #334155;
+  --text-dim: #64748B;
+
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(219, 234, 254, 0.8);
+  --glass-blur: blur(16px);
+
+  --aura-shimmer: conic-gradient(from 180deg at 50% 50%, #1e40af 0deg, #2563eb 90deg, #3b82f6 180deg, #1e40af 360deg);
+}
+
+/* ════════════════════════════════
+   DARK MODE OVERRIDES
+   ════════════════════════════════ */
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #1e3a5f;
+  --bg-card: #1e293b;
+
+  --border-color: #334155;
+  --border-subtle: #1e293b;
+
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-dim: #64748b;
+
+  --glass-bg: rgba(30, 41, 59, 0.85);
+  --glass-border: rgba(51, 65, 85, 0.8);
+}
+
+
+/* ════════════════════════════════
+   KEYFRAMES
+   ════════════════════════════════ */
+@keyframes aura {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.15); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(37, 99, 235, 0.4); }
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes shimmer-anim {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes mesh-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ════════════════════════════════
+   ANIMATION UTILITIES
+   ════════════════════════════════ */
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+.animate-blob { animation: blob 8s ease-in-out infinite; }
+.animate-mesh { background-size: 200% 200%; animation: mesh-shift 15s ease infinite; }
+
+/* ════════════════════════════════
+   GLASSMORPHISM
+   ════════════════════════════════ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.glass-card:hover {
+  border-color: var(--primary-azure);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.glass-dark {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-indigo {
+  background: rgba(37, 99, 235, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+/* ════════════════════════════════
+   BUTTONS
+   ════════════════════════════════ */
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 800;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: var(--primary-gradient);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+  border-radius: 2px;
+}
+
+/* ════════════════════════════════
+   GRADIENT TEXT
+   ════════════════════════════════ */
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ════════════════════════════════
+   SHIMMER SKELETON
+   ════════════════════════════════ */
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer-anim 1.5s infinite;
+}
+
+/* ════════════════════════════════
+   AURA BLOB
+   ════════════════════════════════ */
+.aura-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════
+   TAILWIND DIRECTIVES
+   ════════════════════════════════ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 { @apply tracking-tight; }
+}
+
+::selection { background: rgba(37, 99, 235, 0.3); color: white; }
+
+/* ════════════════════════════════
+   SCROLLBAR
+   ════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.25); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(37, 99, 235, 0.45); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ════════════════════════════════
+   LINE CLAMP
+   ════════════════════════════════ */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ════════════════════════════════
+   CSS-VARIABLE UTILITY ALIASES
+   (used on page wrappers for auto dark/light)
+   ════════════════════════════════ */
+.bg-bg-primary  { background-color: var(--bg-primary) !important; }
+.bg-bg-secondary { background-color: var(--bg-secondary) !important; }
+.bg-bg-card     { background-color: var(--bg-card) !important; }
+.text-text-primary  { color: var(--text-primary) !important; }
+.text-text-secondary { color: var(--text-secondary) !important; }
+.border-border-color { border-color: var(--border-color) !important; }
