@@ -1,113 +1,62 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require('resend');
 
-// Reusable transporter (created once per server lifetime)
-let transporter = null;
-let isEthereal = false;
+// Initialize Resend
+let resendClient = null;
 
-const getTransporter = async () => {
-  if (transporter) return transporter;
-
-  // Use Gmail if both EMAIL_USER and EMAIL_PASSWORD are set in .env
-  const hasGmailCreds = !!(process.env.EMAIL_USER && process.env.EMAIL_PASSWORD);
-
-  if (hasGmailCreds) {
-    // Production: use real Gmail SMTP credentials (App Password)
-    console.log(`📧 Email: Configuring Gmail SMTP for ${process.env.EMAIL_USER}`);
-    transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.EMAIL_PORT) || 587,
-      secure: false, // use STARTTLS
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false // allow self-signed certs in dev
-      }
-    });
-    isEthereal = false;
+const getResendClient = () => {
+  if (resendClient) return resendClient;
+  
+  if (process.env.RESEND_API_KEY) {
+    resendClient = new Resend(process.env.RESEND_API_KEY);
+    console.log('📧 Email Service: Configured with Resend');
   } else {
-    // Development fallback: use Ethereal test account
-    console.log('📧 Email: No credentials found — using Ethereal test account');
-    const testAccount = await nodemailer.createTestAccount();
-    transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
-      secure: false,
-      auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
-      },
-    });
-    isEthereal = true;
+    console.warn('⚠️  Email Service: RESEND_API_KEY is missing from .env. Emails will not be sent.');
   }
-
-  return transporter;
+  
+  return resendClient;
 };
 
-/**
- * Verifies the email transporter connection.
- * Logs success or detailed error without crashing the server.
- * Resets the cached transporter on failure so it can be retried.
- */
 const verifyConnection = async () => {
-  try {
-    const t = await getTransporter();
-    await t.verify();
-    
-    if (isEthereal) {
-      console.log('✉️  Email Service: [TEST MODE] Connected to Ethereal — emails will NOT be delivered to real inboxes.');
-    } else {
-      console.log(`✉️  Email Service: [LIVE] Connected as ${process.env.EMAIL_USER} ✅`);
-    }
+  const client = getResendClient();
+  if (client) {
+    console.log('✉️  Email Service: [LIVE] Connected to Resend API ✅');
     return true;
-  } catch (error) {
-    // Reset cached transporter so it is not reused in a broken state
-    transporter = null;
-
-    console.error('\n❌ Email Service Connection Failed!');
-    console.error(`❌ Error: ${error.message}`);
-    if (error.code === 'EAUTH') {
-      console.error('❌ CAUSE: Gmail rejected the App Password.');
-      console.error('❌ FIX: Go to https://myaccount.google.com/apppasswords and generate a new 16-char App Password.');
-      console.error('❌ Then update EMAIL_PASSWORD in backend/.env and restart the server.');
-    } else if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
-      console.error('❌ CAUSE: Could not reach the SMTP server. Check your internet connection.');
-    }
-    console.error('⚠️  Application will continue running, but email features will be unavailable.\n');
-    return false;
   }
+  console.error('\n❌ Email Service Connection Failed!');
+  console.error('❌ CAUSE: Missing RESEND_API_KEY in .env file.');
+  console.error('❌ FIX: Go to https://resend.com, create an API key, and add it to backend/.env');
+  console.error('⚠️  Application will continue running, but email features will be unavailable.\n');
+  return false;
 };
 
 const sendEmail = async (options) => {
   try {
-    const t = await getTransporter();
+    const client = getResendClient();
+    
+    if (!client) {
+      console.log(`\n📧 [EMAIL SKIPPED: ${options.to}]`);
+      console.log(`   Subject: ${options.subject}`);
+      console.log(`   Reason: No RESEND_API_KEY configured.\n`);
+      return null;
+    }
 
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER || 'noreply@college-cms.test',
+    const data = await client.emails.send({
+      from: process.env.EMAIL_FROM || 'AI College CMS <onboarding@resend.dev>',
       to: options.to,
       subject: options.subject,
       html: options.html,
       text: options.text,
-    };
+    });
 
-    const info = await t.sendMail(mailOptions);
-
-    if (isEthereal) {
-      const previewUrl = nodemailer.getTestMessageUrl(info);
-      console.log(`\n📧 [EMAIL SENT TO: ${options.to}]`);
-      console.log(`   Subject: ${options.subject}`);
-      console.log(`   Preview URL: ${previewUrl}\n`);
-    } else {
-      console.log("✅ Email sent:", info.messageId);
+    if (data.error) {
+      throw new Error(data.error.message);
     }
 
-    return info;
+    console.log("✅ Email sent successfully via Resend. ID:", data.data?.id);
+    return data;
   } catch (error) {
-    console.error("\n❌ Email sending failed!");
+    console.error("\n❌ Email sending failed via Resend!");
     console.error(`❌ Error Message: ${error.message}`);
-    if (error.code) console.error(`❌ Error Code: ${error.code}`);
-    if (error.response) console.error(`❌ SMTP Response: ${error.response}`);
     throw error;
   }
 };
@@ -172,4 +121,4 @@ sendEmail.commentNotification = async (postOwner, commenterName, postTitle, post
 
 sendEmail.verifyConnection = verifyConnection;
 
-module.exports = sendEmail;
+module.exports = sendEmail;

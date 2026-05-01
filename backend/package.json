@@ -36,6 +36,7 @@
     "nodemailer": "^6.10.1",
     "officeparser": "^6.1.0",
     "pdf-parse": "^2.4.5",
+    "resend": "^6.12.2",
     "sentiment": "^5.0.2",
     "socket.io": "^4.6.1"
   },
