@@ -501,7 +501,7 @@ export default function ContentManagement() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
                <div className="lg:col-span-3">
                   <div className="relative group">
-                    <Search className="absolute left-6 top-1/2 -tranblue-y-1/2 w-5 h-5 text-slate-600 group-focus-within:text-primary-blue transition-colors" />
+                    <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600 group-focus-within:text-primary-blue transition-colors" />
                     <input 
                       type="text" 
                       placeholder="Search the global academic library..." 
@@ -665,7 +665,7 @@ export default function ContentManagement() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="bg-bg-card dark:bg-slate-800 p-8 rounded-[2.5rem] hover:bg-blue-50 transition-all duration-500 group border border-border-color relative flex flex-col shadow-xl hover:shadow-2xl hover:-tranblue-y-1"
+                    className="bg-bg-card dark:bg-slate-800 p-8 rounded-[2.5rem] hover:bg-blue-50 transition-all duration-500 group border border-border-color relative flex flex-col shadow-xl hover:shadow-2xl hover:-translate-y-1"
                   >
                     <div className="flex items-start gap-5 mb-6">
                       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-sm ${TYPE_ICON_STYLES[item.type] || 'bg-blue-50 border-border-color text-slate-600'}`}>
@@ -730,7 +730,7 @@ export default function ContentManagement() {
             <div className="flex flex-wrap items-center justify-between gap-6 mb-12">
                <div className="flex-1 min-w-[300px]">
                   <div className="relative group">
-                    <Search className="absolute left-6 top-1/2 -tranblue-y-1/2 w-5 h-5 text-slate-600 group-focus-within:text-primary-blue transition-colors" />
+                    <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600 group-focus-within:text-primary-blue transition-colors" />
                     <input 
                       type="text" 
                       placeholder="Search upcoming campus activities..." 
@@ -853,7 +853,7 @@ export default function ContentManagement() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.05 }}
-                        className="bg-bg-card dark:bg-slate-800 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:bg-blue-50 border border-border-color relative group flex flex-col shadow-xl hover:shadow-2xl hover:-tranblue-y-2"
+                        className="bg-bg-card dark:bg-slate-800 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:bg-blue-50 border border-border-color relative group flex flex-col shadow-xl hover:shadow-2xl hover:-translate-y-2"
                       >
                         {/* Event Banner */}
                         <div className={`bg-gradient-to-br ${styles.bg} h-40 flex items-center justify-center text-7xl relative`}>

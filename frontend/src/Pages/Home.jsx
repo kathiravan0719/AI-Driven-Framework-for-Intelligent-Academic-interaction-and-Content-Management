@@ -224,11 +224,11 @@ function StatCard({ icon, value, label, suffix, color }) {
    
    return (
       <div className="glass-card p-12 rounded-[3.5rem] group relative overflow-hidden">
-         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[60px] tranblue-x-12 -tranblue-y-12 group-hover:scale-150 transition-transform duration-700"></div>
+         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[60px] translate-x-12 -translate-y-12 group-hover:scale-150 transition-transform duration-700"></div>
          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-10 border ${colorMap[color]} group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl`}>
             {icon}
          </div>
-         <div className="text-6xl font-black text-text-primary mb-6 tabular-nums tracking-tighter group-hover:tranblue-x-2 transition-transform duration-500">
+         <div className="text-6xl font-black text-text-primary mb-6 tabular-nums tracking-tighter group-hover:translate-x-2 transition-transform duration-500">
             {value}{suffix}
          </div>
          <div className="text-text-secondary font-black uppercase tracking-[0.2em] text-[11px]">
@@ -241,7 +241,7 @@ function StatCard({ icon, value, label, suffix, color }) {
 function Pillar({ icon, title, desc }) {
    return (
       <div className="flex flex-col items-center gap-6 group text-center">
-         <div className="w-16 h-16 bg-bg-card dark:bg-slate-800 rounded-2xl flex items-center justify-center text-primary-blue border border-border-color shadow-lg group-hover:scale-110 group-hover:-tranblue-y-2 transition-all duration-500">
+         <div className="w-16 h-16 bg-bg-card dark:bg-slate-800 rounded-2xl flex items-center justify-center text-primary-blue border border-border-color shadow-lg group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
             {React.cloneElement(icon, { className: "w-7 h-7" })}
          </div>
          <div>

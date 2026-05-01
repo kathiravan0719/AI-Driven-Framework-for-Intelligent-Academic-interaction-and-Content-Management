@@ -235,7 +235,7 @@ function OverviewTab({ stats, posts, users }) {
                 <Clock className="w-6 h-6 text-primary-blue" /> Recent Learning Activity
              </h3>
              <button onClick={() => navigate('/feed')} className="text-[10px] font-black text-primary-blue flex items-center gap-2 group/btn uppercase tracking-widest hover:text-primary-navy transition-colors">
-                Network Feed <ChevronRight className="w-4 h-4 group-hover/btn:tranblue-x-1 transition-transform" />
+                Network Feed <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
              </button>
           </div>
           <div className="space-y-5">
@@ -340,7 +340,7 @@ function PostsTab({ posts, users, onDelete, navigate }) {
         {posts.map((post) => {
           const user = users.find((u) => (u._id || u.id) === (post.userId?._id || post.userId));
           return (
-             <div key={post._id || post.id} className="p-8 bg-blue-50 border border-blue-100 rounded-[3rem] hover:bg-white hover:shadow-2xl hover:-tranblue-y-1 transition-all group/card">
+             <div key={post._id || post.id} className="p-8 bg-blue-50 border border-blue-100 rounded-[3rem] hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all group/card">
               <div className="flex items-start justify-between mb-8">
                 <div className="flex items-center gap-5">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary-navy to-primary-blue rounded-[1.8rem] flex items-center justify-center text-white font-black text-lg border border-white/10 group-hover/card:scale-110 transition-transform duration-700 shadow-xl">
@@ -433,14 +433,14 @@ function AnalyticsTab({ posts, users }) {
         </h3>
         <div className="grid grid-cols-2 gap-8">
           <div className="text-center p-10 bg-blue-50 rounded-[2.5rem] border border-blue-100 group hover:border-primary-blue/20 transition-all duration-700 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-primary-blue/5 rounded-full blur-[50px] tranblue-x-10 -tranblue-y-10 group-hover:scale-150 transition-transform duration-1000"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-primary-blue/5 rounded-full blur-[50px] translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-1000"></div>
             <div className="text-6xl font-black text-slate-900 mb-4 tracking-tighter group-hover:scale-110 transition-transform">
               {posts.reduce((sum, p) => sum + (Array.isArray(p.likes) ? p.likes.length : (p.likes || 0)), 0)}
             </div>
             <div className="text-[10px] font-black text-slate-600 uppercase tracking-[0.3em] mt-2">Total Signals</div>
           </div>
           <div className="text-center p-10 bg-blue-50 rounded-[2.5rem] border border-blue-100 group hover:border-primary-azure/20 transition-all duration-700 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-primary-azure/5 rounded-full blur-[50px] tranblue-x-10 -tranblue-y-10 group-hover:scale-150 transition-transform duration-1000"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-primary-azure/5 rounded-full blur-[50px] translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-1000"></div>
             <div className="text-6xl font-black text-slate-900 mb-4 tracking-tighter group-hover:scale-110 transition-transform">
               {posts.reduce((sum, p) => sum + (p.comments?.length || 0), 0)}
             </div>
@@ -460,9 +460,9 @@ function StatCard({ title, value, icon, color, delay }) {
        transition={{ delay }}
        className={`${color} bg-white p-10 rounded-[3rem] border border-blue-100 group hover:scale-[1.03] transition-all duration-700 shadow-xl overflow-hidden relative`}
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-[60px] tranblue-x-12 -tranblue-y-12 group-hover:scale-150 transition-transform duration-1000"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-[60px] translate-x-12 -translate-y-12 group-hover:scale-150 transition-transform duration-1000"></div>
       <div className="p-5 rounded-2.5xl bg-white w-fit mb-8 border border-blue-100 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-700 shadow-lg">{icon}</div>
-      <div className="text-5xl font-black text-slate-900 mb-3 tracking-tighter group-hover:tranblue-x-3 transition-transform duration-500">{value}</div>
+      <div className="text-5xl font-black text-slate-900 mb-3 tracking-tighter group-hover:translate-x-3 transition-transform duration-500">{value}</div>
       <div className="text-[10px] font-black uppercase tracking-[0.4em] opacity-40 group-hover:opacity-100 group-hover:text-slate-900 transition-all">{title}</div>
     </motion.div>
   );

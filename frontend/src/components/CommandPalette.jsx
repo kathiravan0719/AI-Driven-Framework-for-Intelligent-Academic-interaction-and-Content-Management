@@ -123,7 +123,7 @@ const CommandPalette = () => {
                       onMouseEnter={() => setSelectedIndex(index)}
                       className={`w-full flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-200 ${
                         index === selectedIndex 
-                        ? 'bg-primary-blue shadow-lg shadow-primary-blue/20 tranblue-x-1' 
+                        ? 'bg-primary-blue shadow-lg shadow-primary-blue/20 translate-x-1' 
                         : 'hover:bg-blue-50'
                       }`}
                     >

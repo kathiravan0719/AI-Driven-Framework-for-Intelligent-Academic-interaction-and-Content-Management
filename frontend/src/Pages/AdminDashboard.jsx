@@ -508,7 +508,7 @@ export default function AdminDashboard() {
                         
                         <div className="px-12 py-10 border-b border-blue-50 bg-blue-50/50 flex items-center justify-between">
                            <div className="relative w-full max-w-md">
-                              <Search className="w-5 h-5 text-slate-600 absolute left-5 top-1/2 -tranblue-y-1/2" />
+                              <Search className="w-5 h-5 text-slate-600 absolute left-5 top-1/2 -translate-y-1/2" />
                               <input 
                                  type="text" 
                                  placeholder="Search the audit stream..." 

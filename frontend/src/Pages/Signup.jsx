@@ -146,7 +146,7 @@ function Signup() {
                    <option value="faculty" className="bg-white">Faculty</option>
                    <option value="admin" className="bg-white">Admin</option>
                  </select>
-                 <div className="absolute right-5 top-1/2 -tranblue-y-1/2 pointer-events-none text-text-secondary">
+                 <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
                  </div>
                </div>
@@ -170,7 +170,7 @@ function Signup() {
                  <button
                    type="button"
                    onClick={() => setShowPassword(!showPassword)}
-                   className="absolute right-5 top-1/2 -tranblue-y-1/2 text-text-secondary hover:text-primary-blue transition-colors"
+                   className="absolute right-5 top-1/2 -translate-y-1/2 text-text-secondary hover:text-primary-blue transition-colors"
                  >
                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                  </button>

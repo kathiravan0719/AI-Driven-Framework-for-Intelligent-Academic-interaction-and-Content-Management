@@ -73,7 +73,7 @@ function ForgotPassword() {
                 <div>
                   <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.2em] mb-2 px-1">Email Address</label>
                   <div className="relative group">
-                    <Mail className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -tranblue-y-1/2 group-focus-within:text-primary-blue transition-colors" />
+                    <Mail className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-primary-blue transition-colors" />
                     <input
                       type="email"
                       value={email}
@@ -122,7 +122,7 @@ function ForgotPassword() {
               to="/login"
               className="text-[10px] font-black text-text-secondary hover:text-primary-blue uppercase tracking-[0.2em] transition flex items-center justify-center gap-3 group"
             >
-              <ArrowLeft className="w-4 h-4 group-hover:-tranblue-x-1 transition-transform" /> Back to Login
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Login
             </Link>
           </div>
         </div>

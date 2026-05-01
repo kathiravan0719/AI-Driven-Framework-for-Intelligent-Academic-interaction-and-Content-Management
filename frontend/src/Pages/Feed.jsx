@@ -188,7 +188,7 @@ export default function Feed() {
                           >
                             {CATEGORIES.map((c) => <option key={c} className="bg-white">{c}</option>)}
                           </select>
-                          <div className="absolute right-5 top-1/2 -tranblue-y-1/2 pointer-events-none text-slate-600 group-hover:text-primary-blue transition-colors">
+                          <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-600 group-hover:text-primary-blue transition-colors">
                             <Filter className="w-3.5 h-3.5" />
                           </div>
                         </div>
@@ -197,7 +197,7 @@ export default function Feed() {
                           disabled={submitting}
                           className="group w-full sm:w-auto sm:ml-auto px-10 py-5 bg-gradient-to-r from-primary-navy via-primary-blue to-primary-azure text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-xl disabled:opacity-50 flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 border border-white/10"
                         >
-                          {submitting ? <div className="flex items-center gap-3 animate-pulse"><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> Propagating...</div> : <>Transmit Source <ArrowRight className="w-5 h-5 group-hover:tranblue-x-1 transition-transform" /></>}
+                          {submitting ? <div className="flex items-center gap-3 animate-pulse"><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> Propagating...</div> : <>Transmit Source <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>}
                         </button>
                       </div>
                     </form>
@@ -217,7 +217,7 @@ export default function Feed() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full h-24 bg-white border-2 border-border-color rounded-[2.5rem] pl-20 pr-8 text-text-primary placeholder:text-slate-600 focus:outline-none focus:ring-4 focus:ring-primary-blue/10 focus:border-primary-blue/20 transition-all text-xl font-black tracking-tight shadow-sm"
               />
-              <div className="absolute right-3 top-1/2 -tranblue-y-1/2 flex items-center gap-4">
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-4">
                  <div className="h-10 w-px bg-blue-100"></div>
                  <div className="px-4 py-2 bg-primary-blue/5 rounded-xl text-[10px] font-black text-primary-blue uppercase tracking-widest border border-primary-blue/10 mr-4">Neural Scanner Active</div>
               </div>
@@ -235,7 +235,7 @@ export default function Feed() {
                     className="bg-bg-card dark:bg-slate-800 p-12 rounded-[3.5rem] cursor-pointer transition-all hover:bg-blue-50 group border border-border-color relative overflow-hidden shadow-xl group/card"
                   >
                     <div className="absolute top-0 right-0 p-12 opacity-0 group-hover:opacity-100 transition-opacity">
-                       <ArrowRight className="w-8 h-8 text-primary-blue -tranblue-x-10 group-hover:tranblue-x-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                       <ArrowRight className="w-8 h-8 text-primary-blue -translate-x-10 group-hover:translate-x-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                     </div>
 
                     <div className="flex items-center gap-6 mb-10">
@@ -263,7 +263,7 @@ export default function Feed() {
                       </div>
                     </div>
 
-                    <h2 className="text-3xl font-black text-text-primary mb-5 group-hover:tranblue-x-2 transition-transform tracking-tighter leading-tight">{post.title}</h2>
+                    <h2 className="text-3xl font-black text-text-primary mb-5 group-hover:translate-x-2 transition-transform tracking-tighter leading-tight">{post.title}</h2>
                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 font-bold mb-10 uppercase tracking-[0.2em]">
                        {post.content}
                     </p>

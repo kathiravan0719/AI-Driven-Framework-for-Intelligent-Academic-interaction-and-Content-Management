@@ -229,7 +229,7 @@ function Chat() {
                   </button>
                 </div>
                 <div className="relative">
-                  <Search className="w-4 h-4 absolute left-3 top-1/2 -tranblue-y-1/2 text-text-secondary" />
+                  <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary" />
                   <input
                     type="text"
                     placeholder="Search conversations..."
@@ -473,7 +473,7 @@ function Chat() {
                            placeholder="Type a message..."
                            className="w-full px-5 py-3.5 bg-bg-tertiary dark:bg-slate-900 rounded-2xl text-sm focus:ring-4 focus:ring-primary-blue/10 focus:bg-white border border-border-color transition shadow-inner font-medium pr-12"
                          />
-                         <div className="absolute right-4 top-1/2 -tranblue-y-1/2 text-text-secondary">
+                         <div className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary">
                            <Smile className="w-5 h-5 cursor-pointer hover:text-primary-blue transition-colors" />
                          </div>
                       </div>

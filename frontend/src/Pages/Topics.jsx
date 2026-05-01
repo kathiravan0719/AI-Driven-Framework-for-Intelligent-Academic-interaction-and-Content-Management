@@ -124,7 +124,7 @@ function Topics() {
                 onClick={() => navigate("/feed")}
                 className="px-10 py-4 bg-gradient-to-r from-primary-navy to-primary-blue hover:scale-105 text-white rounded-[2rem] font-black uppercase tracking-[0.2em] text-xs transition-all shadow-xl active:scale-95 flex items-center gap-3 mx-auto group"
               >
-                Enter Discussion Stream <ArrowRight className="w-4 h-4 group-hover:tranblue-x-1 transition-transform" />
+                Enter Discussion Stream <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
            </div>
         </motion.div>
@@ -175,7 +175,7 @@ function Topics() {
                         {topic.posts} Active
                      </span>
                   </div>
-                  <div className="text-slate-600 group-hover:text-primary-blue transition-all transform group-hover:tranblue-x-2">
+                  <div className="text-slate-600 group-hover:text-primary-blue transition-all transform group-hover:translate-x-2">
                      <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -221,7 +221,7 @@ function Topics() {
                       </div>
                     </div>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-primary-blue transition-all transform group-hover:tranblue-x-1" />
+                  <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-primary-blue transition-all transform group-hover:translate-x-1" />
                 </button>
               );
             })}

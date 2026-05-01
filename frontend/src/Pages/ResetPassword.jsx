@@ -106,7 +106,7 @@ function ResetPassword() {
             <div>
               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.2em] mb-2 px-1">New Password</label>
               <div className="relative group">
-                <Lock className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -tranblue-y-1/2 group-focus-within:text-primary-blue transition-colors" />
+                <Lock className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-primary-blue transition-colors" />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
@@ -119,7 +119,7 @@ function ResetPassword() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -tranblue-y-1/2 text-text-secondary hover:text-primary-blue transition"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-primary-blue transition"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -149,7 +149,7 @@ function ResetPassword() {
             <div>
               <label className="block text-[10px] font-black text-text-secondary uppercase tracking-[0.2em] mb-2 px-1">Confirm Identity</label>
               <div className="relative group">
-                <Lock className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -tranblue-y-1/2 group-focus-within:text-primary-blue transition-colors" />
+                <Lock className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-primary-blue transition-colors" />
                 <input
                   type={showConfirm ? "text" : "password"}
                   value={confirmPassword}
@@ -168,7 +168,7 @@ function ResetPassword() {
                 <button
                   type="button"
                   onClick={() => setShowConfirm(!showConfirm)}
-                  className="absolute right-4 top-1/2 -tranblue-y-1/2 text-text-secondary hover:text-primary-blue transition"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-primary-blue transition"
                 >
                   {showConfirm ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -203,7 +203,7 @@ function ResetPassword() {
               to="/login"
               className="text-[10px] font-black text-text-secondary hover:text-primary-blue uppercase tracking-[0.2em] transition flex items-center justify-center gap-3 group"
             >
-              <ArrowLeft className="w-4 h-4 group-hover:-tranblue-x-1 transition-transform" /> Back to Login
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Login
             </Link>
           </div>
         </div>

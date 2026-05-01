@@ -248,14 +248,14 @@ function About() {
                     onClick={() => navigate("/signup")}
                     className="px-12 py-5 bg-gradient-to-r from-primary-navy to-primary-blue hover:scale-105 text-white rounded-[2rem] font-black uppercase tracking-[0.2em] text-xs transition-all shadow-xl active:scale-95 flex items-center justify-center gap-3 group"
                   >
-                    Initialize Identity <ArrowRight className="w-4 h-4 group-hover:tranblue-x-1 transition-transform" />
+                    Initialize Identity <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                ) : (
                   <button
                     onClick={() => navigate("/feed")}
                     className="px-12 py-5 bg-white border border-border-color text-text-primary rounded-[2rem] font-black uppercase tracking-[0.2em] text-xs transition-all hover:bg-blue-50 shadow-sm active:scale-95 flex items-center justify-center gap-3 group"
                   >
-                    Enter Learning Streams <ArrowRight className="w-4 h-4 group-hover:tranblue-x-1 transition-transform" />
+                    Enter Learning Streams <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                )}
              </div>

@@ -157,7 +157,7 @@ const Header = () => {
                   />
                   <motion.div 
                     layoutId="activeIndicator"
-                    className="absolute bottom-1.5 left-1/2 -tranblue-x-1/2 w-5 h-0.5 bg-gradient-to-r from-primary-blue to-primary-azure rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]"
+                    className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-gradient-to-r from-primary-blue to-primary-azure rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 </>
